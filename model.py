@@ -1,11 +1,12 @@
 from abc import ABC, abstractmethod
 
+
 class DCCORM(ABC):
     @abstractmethod
     def add_sphere(self, x, y, z, radius) -> str:
         """
         Create a sphere at the given position with the given radius
-        
+
         Returns:
             str -- The id of the created sphere
         """
@@ -32,7 +33,9 @@ class DCCORM(ABC):
         pass
 
     @abstractmethod
-    def render(self, geometries: list, lights: list, camera: str, output_path: str) -> str:
+    def render(
+        self, geometries: list, lights: list, camera: str, output_path: str
+    ) -> str:
         """
         Render the scene with the given geometries, lights, and camera
 
@@ -45,5 +48,15 @@ class DCCORM(ABC):
     def export_fbx(self, selections, path):
         """
         Export the selected objects to an FBX file at the given path
+        """
+        pass
+
+    @abstractmethod
+    def load_fbx(self, path) -> str:
+        """
+        Load an FBX file from the given path
+
+        Returns:
+            str -- The id of the loaded FBX file
         """
         pass
